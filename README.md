@@ -6,6 +6,6 @@
 ##### Solution: Problem 1.ipynb
 #
 #
-# Problem 2
+### Problem 2
 ##### Find years which Star Wars was not the most popular licensed theme
 ##### Solution: Problem 2.ipynb
