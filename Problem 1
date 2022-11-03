@@ -1,0 +1,16 @@
+#Import library and data
+import pandas as pd
+
+lego_sets = pd.read_csv('https://raw.githubusercontent.com/KeithGalli/lego-analysis/master/datasets/lego_sets.csv')
+lego_theme = pd.read_csv('https://raw.githubusercontent.com/KeithGalli/lego-analysis/master/datasets/parent_themes.csv')
+
+lego = lego_sets.merge(lego_theme, left_on='parent_theme', right_on='name') #join datasets on lego_sets.lego_theme = lego_theme.parent_theme
+lego.drop(columns="name_y", inplace = True) #Drop duplicate name column
+lego.rename(columns={'name_x': 'name'}, inplace=True) #Rename remaining name column
+
+licensed = lego[lego['is_licensed']==True] #Create dataframe of licensed sets
+licensed.dropna(subset=['set_num'], inplace = True) #Drop null values in set_num column
+star_wars = licensed[licensed['parent_theme']=='Star Wars'] #Create dataframe of star wars licensed sets
+
+percent_star_wars = star_wars.shape[0]/licensed.shape[0]*100 #Percentage of star wars sets out of all licensed sets
+percent_star_wars #Display percentage 
