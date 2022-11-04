@@ -10,3 +10,8 @@
 ### Problem 2
 ##### Find years which Star Wars was not the most popular licensed theme
 ##### Solution: Problem 2.ipynb
+#
+#
+### Problem 3
+##### Find number of new sets released per year
+##### Solution: Problem 3.ipynb
